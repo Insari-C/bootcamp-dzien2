@@ -3,6 +3,8 @@
         <button @click="Pobierz Wpisy">refresh</button>
         siema blog!
         {{ wpisy }}
+        <input v-model="nowyBlog" type="text">
+        {{ nowyBlog }}
     </div>
 </template>
 
@@ -16,6 +18,9 @@ export|default {
         }
     },
     methods: {
+        async dodajWpisy(){
+        |   await dzien2_backend.dodaj_Wpisy(nowyBlog);
+        }
         pobierzWpisy() {
            this.wpisy = await dzien2_backend.odczytaj_wpisy()
 
