@@ -1,9 +1,12 @@
 <template>
     <div>
+        <h2 class="text-blue-600"></h2>
         <button @click="Pobierz Wpisy">refresh</button>
-        siema blog!
+        <div v-for="wpis in wpisy">
+                siema blog!
         {{ wpisy }}
-        <input v-model="nowyBlog" type="text">
+        </div>
+        <input> v-model="nowyBlog" type="text">
         <button @click="dodajwpisy">dodaj</button>
         {{ nowyBlog }}
     </div>
@@ -27,5 +30,8 @@ export default {
 
         }
     },
+    async mounted() {
+  this.pobierzWpisy();
+}
 }
 </script>
